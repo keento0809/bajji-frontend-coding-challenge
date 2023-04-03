@@ -1,7 +1,9 @@
+import TopHeader from "./components/topHeader/TopHeader";
+
 function App() {
   return (
     <div>
-      <p>front-end coding challenge</p>
+      <TopHeader />
     </div>
   );
 }

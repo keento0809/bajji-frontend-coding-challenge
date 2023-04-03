@@ -1,0 +1,25 @@
+.topHeader {
+  max-height: 32px;
+  padding: 10px 0;
+  background-color: #000000;
+  color: #fff;
+
+  &_container {
+    font-weight: 600;
+    line-height: 12px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &_content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &_icon {
+    padding: 0 9px;
+  }
+}
