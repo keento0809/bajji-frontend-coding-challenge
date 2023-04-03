@@ -1,3 +1,5 @@
+/* Styles for LatestNewsSection  */
+
 .latestNewsSection {
   padding-top: 40px;
   max-width: 320px;
@@ -15,6 +17,28 @@
     padding-top: 24px;
     display: grid;
     grid-template-columns: "1fr";
+    gap: 24px;
+  }
+}
+
+/* Styles for CategorizedNewsSection  */
+
+.categorizedNewsSection {
+  padding-bottom: 40px;
+
+  &_title {
+    padding: 24px 0;
+
+    & h1 {
+      font-size: 48px;
+      line-height: 53px;
+      font-weight: 700;
+    }
+  }
+
+  &_newsList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 24px;
   }
 }

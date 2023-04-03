@@ -6,6 +6,7 @@ import MainContentWrapper from "./components/wrapper/MainContentWrapper";
 import NewsContentWrapper from "./components/wrapper/NewsContentWrapper";
 import NewsList from "./components/list/NewsList";
 import LatestNewsSection from "./features/section/LatestNewsSection";
+import CategorizedNewsSection from "./features/section/CategorizedNewsSection";
 
 function App() {
   return (
@@ -28,6 +29,10 @@ function App() {
             <NewsList />
             <LatestNewsSection />
           </div>
+          {/* TODO:Refactor these three CategorizedNewsSection components later. */}
+          <CategorizedNewsSection />
+          <CategorizedNewsSection />
+          <CategorizedNewsSection />
         </NewsContentWrapper>
       </MainContentWrapper>
     </div>
