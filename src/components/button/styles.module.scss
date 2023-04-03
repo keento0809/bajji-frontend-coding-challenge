@@ -1,0 +1,30 @@
+/* Styles for SearchButton component  */
+.searchButton {
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  padding: 7px;
+  appearance: none;
+  font-weight: 700;
+  line-height: 14px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styles for Subscribe component  */
+.subscribeButton {
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  padding: 7px;
+  appearance: none;
+  font-weight: 700;
+  line-height: 14px;
+  font-size: 14px;
+}

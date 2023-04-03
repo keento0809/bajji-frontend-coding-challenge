@@ -1,0 +1,25 @@
+.mainHeader {
+  padding: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &_title {
+    & h2 {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 32px;
+    }
+  }
+
+  &_buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    button:nth-child(1) {
+      margin-right: 8px;
+    }
+  }
+}
