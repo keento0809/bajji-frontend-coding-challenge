@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import Category from "./pages/Category";
+import CategorizedNews from "./pages/CategorizedNews";
 import ErrorPage from "./pages/ErrorPage";
-import Home from "./pages/Home";
+import Home from "./pages/Top";
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/:category" element={<Category />} />
+      <Route path="/:category" element={<CategorizedNews />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
