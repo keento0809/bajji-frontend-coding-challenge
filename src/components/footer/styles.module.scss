@@ -1,0 +1,34 @@
+.footer {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+
+  &_container {
+    padding: 40px 0;
+  }
+
+  &_contents {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    & span {
+      font-size: 12px;
+      line-height: 12px;
+      font-weight: 500;
+      padding-left: 16px;
+    }
+
+    & :nth-child(1) {
+      padding-left: 0;
+    }
+  }
+
+  &_copyright {
+    padding-top: 8px;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 500;
+    font-size: 12px;
+  }
+}
