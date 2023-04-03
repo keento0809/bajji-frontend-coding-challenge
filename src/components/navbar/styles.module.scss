@@ -1,0 +1,21 @@
+.navbar {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+
+  &_menu {
+    display: inline-block;
+    text-decoration: none;
+    padding: 13px 24px;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  &_menuActive {
+    display: inline-block;
+    text-decoration: none;
+    padding: 13px 24px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #000;
+  }
+}
