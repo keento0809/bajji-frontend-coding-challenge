@@ -8,8 +8,15 @@ import NewsList from "../components/list/NewsList";
 import LatestNewsSection from "../features/section/LatestNewsSection";
 import CategorizedNewsSection from "../features/section/CategorizedNewsSection";
 import Footer from "../components/footer/Footer";
+import useFetchNews from "../hooks/useFetchNews";
 
 export default function Home() {
+  // Test fetching data
+  //TODO: delete test codes below later
+  const { news, fetchNews } = useFetchNews(
+    `https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty&limitToFirst=19&orderBy="$key"`
+  );
+  console.log(news, fetchNews);
   return (
     <div>
       <TopHeader />
