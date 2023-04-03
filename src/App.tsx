@@ -35,8 +35,8 @@ function App() {
           <CategorizedNewsSection />
           <CategorizedNewsSection />
         </NewsContentWrapper>
-        <Footer />
       </MainContentWrapper>
+      <Footer />
     </div>
   );
 }
