@@ -1,44 +1,14 @@
-import Headline from "./components/headline/Headline";
-import MainHeader from "./components/mainHeader/MainHeader";
-import Navbar from "./components/navbar/Navbar";
-import TopHeader from "./components/topHeader/TopHeader";
-import MainContentWrapper from "./components/wrapper/MainContentWrapper";
-import NewsContentWrapper from "./components/wrapper/NewsContentWrapper";
-import NewsList from "./components/list/NewsList";
-import LatestNewsSection from "./features/section/LatestNewsSection";
-import CategorizedNewsSection from "./features/section/CategorizedNewsSection";
-import Footer from "./components/footer/Footer";
+import { Route, Routes } from "react-router-dom";
+import Category from "./pages/Category";
+import ErrorPage from "./pages/ErrorPage";
+import Home from "./pages/Home";
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <TopHeader />
-      <MainContentWrapper>
-        <MainHeader />
-        <Navbar />
-        <NewsContentWrapper>
-          <Headline />
-          {/* TODO:Refactor styling for this div tag later */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              gap: "48px",
-            }}
-          >
-            <NewsList />
-            <LatestNewsSection />
-          </div>
-          {/* TODO:Refactor these three CategorizedNewsSection components later. */}
-          <CategorizedNewsSection />
-          <CategorizedNewsSection />
-          <CategorizedNewsSection />
-        </NewsContentWrapper>
-      </MainContentWrapper>
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/:category" element={<Category />} />
+      <Route path="*" element={<ErrorPage />} />
+    </Routes>
   );
 }
-
-export default App;
