@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 
 const DUMMY_ARRAY = ["a", "b", "c", "d", "e"] as const;
 
-export default function LatestNewsSection() {
+export default function LatestNewsBlock() {
   return (
     <div className={styles.latestNewsSection}>
       <h3 className={styles.latestNewsSection_title}>The Latest</h3>

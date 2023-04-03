@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 
 const DUMMY_ARRAY = ["a", "b", "c", "d"] as const;
 
-export default function CategorizedNewsSection() {
+export default function CategorizedNewsBlock() {
   return (
     <div className={styles.categorizedNewsSection}>
       <section className={styles.categorizedNewsSection_title}>

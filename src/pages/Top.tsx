@@ -1,7 +1,7 @@
 import Headline from "../components/headline/Headline";
 import NewsList from "../components/list/NewsList";
-import LatestNewsSection from "../features/section/LatestNewsSection";
-import CategorizedNewsSection from "../features/section/CategorizedNewsSection";
+import LatestNewsBlock from "../features/block/LatestNewsBlock";
+import CategorizedNewsBlock from "../features/block/CategorizedNewsBlock";
 
 export default function Home() {
   return (
@@ -17,12 +17,12 @@ export default function Home() {
         }}
       >
         <NewsList />
-        <LatestNewsSection />
+        <LatestNewsBlock />
       </div>
-      {/* TODO:Refactor these three CategorizedNewsSection components later. */}
-      <CategorizedNewsSection />
-      <CategorizedNewsSection />
-      <CategorizedNewsSection />
+      {/* TODO:Refactor these three CategorizedNewsBlock components later. */}
+      <CategorizedNewsBlock />
+      <CategorizedNewsBlock />
+      <CategorizedNewsBlock />
     </div>
   );
 }
