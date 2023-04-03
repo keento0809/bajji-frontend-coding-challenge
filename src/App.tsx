@@ -5,6 +5,7 @@ import TopHeader from "./components/topHeader/TopHeader";
 import MainContentWrapper from "./components/wrapper/MainContentWrapper";
 import NewsContentWrapper from "./components/wrapper/NewsContentWrapper";
 import NewsList from "./components/list/NewsList";
+import LatestNewsSection from "./features/section/LatestNewsSection";
 
 function App() {
   return (
@@ -15,7 +16,18 @@ function App() {
         <Navbar />
         <NewsContentWrapper>
           <Headline />
-          <NewsList />
+          {/* TODO:Refactor styling for this div tag later */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              gap: "48px",
+            }}
+          >
+            <NewsList />
+            <LatestNewsSection />
+          </div>
         </NewsContentWrapper>
       </MainContentWrapper>
     </div>
