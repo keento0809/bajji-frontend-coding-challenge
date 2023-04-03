@@ -4,7 +4,7 @@ import Navbar from "./components/navbar/Navbar";
 import TopHeader from "./components/topHeader/TopHeader";
 import MainContentWrapper from "./components/wrapper/MainContentWrapper";
 import NewsContentWrapper from "./components/wrapper/NewsContentWrapper";
-import News from "./components/news/News";
+import NewsList from "./components/list/NewsList";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Navbar />
         <NewsContentWrapper>
           <Headline />
-          <News />
+          <NewsList />
         </NewsContentWrapper>
       </MainContentWrapper>
     </div>
