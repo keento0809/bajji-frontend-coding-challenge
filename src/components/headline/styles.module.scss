@@ -1,0 +1,45 @@
+.headline {
+  padding: 40px 0;
+  border-bottom: 1px solid #000;
+
+  &_titleSection {
+    & p {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 14px;
+    }
+  }
+
+  &_title {
+    padding-top: 4px;
+
+    & h1 {
+      display: -webkit-box;
+      font-weight: 600;
+      min-height: 60px;
+      max-height: 106px;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &_authorAndTimeSection {
+    padding-top: 16px;
+    font-weight: 500;
+    line-height: 12px;
+    font-size: 12px;
+    color: #767676;
+  }
+
+  &_author {
+    display: inline-block;
+    padding-right: 8px;
+    font-size: 12px;
+  }
+
+  &_time {
+    display: "inline-block";
+  }
+}
