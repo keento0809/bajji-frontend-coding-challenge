@@ -1,3 +1,4 @@
+import LoadMoreNewsButton from "../../components/button/LoadMoreNewsButton";
 import News from "../../components/news/News";
 import styles from "./styles.module.scss";
 
@@ -12,6 +13,7 @@ export default function LatestNewsSection() {
           return <News />;
         })}
       </div>
+      <LoadMoreNewsButton />
     </div>
   );
 }
