@@ -16,8 +16,18 @@ function App() {
         <Navbar />
         <NewsContentWrapper>
           <Headline />
-          <NewsList />
-          <LatestNewsSection />
+          {/* TODO:Refactor styling for this div tag later */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              gap: "48px",
+            }}
+          >
+            <NewsList />
+            <LatestNewsSection />
+          </div>
         </NewsContentWrapper>
       </MainContentWrapper>
     </div>
