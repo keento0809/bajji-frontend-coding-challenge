@@ -7,6 +7,7 @@ import NewsContentWrapper from "./components/wrapper/NewsContentWrapper";
 import NewsList from "./components/list/NewsList";
 import LatestNewsSection from "./features/section/LatestNewsSection";
 import CategorizedNewsSection from "./features/section/CategorizedNewsSection";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <CategorizedNewsSection />
           <CategorizedNewsSection />
         </NewsContentWrapper>
+        <Footer />
       </MainContentWrapper>
     </div>
   );
