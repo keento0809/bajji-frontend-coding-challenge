@@ -1,5 +1,5 @@
 import SearchButton from "../button/SearchButton";
-import SubScribeButton from "../button/SubScribeButton";
+import SubScribeButton from "../button/SubscribeButton";
 import styles from "./styles.module.scss";
 
 export default function MainHeader() {

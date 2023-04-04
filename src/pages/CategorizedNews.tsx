@@ -46,7 +46,7 @@ export default function Category({ category }: Props) {
         <NewsList
           newsData={splitNewsData}
           customStyle="categorized"
-          maxWidth="290px"
+          maxWidth="maxWidth290"
         />
         <LoadMoreNewsButton
           label={category + " " + "HN"}

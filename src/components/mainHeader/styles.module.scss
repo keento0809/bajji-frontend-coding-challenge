@@ -1,15 +1,26 @@
 .mainHeader {
-  padding: 24px;
+  padding: 24px 16px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
+  @media screen and (min-width: 1280px) {
+    padding: 24px;
+  }
+
   &_title {
     & h2 {
-      font-size: 32px;
+      font-size: 20px;
       font-weight: 600;
-      line-height: 32px;
+      line-height: 20px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      & h2 {
+        font-size: 32px;
+        line-height: 32px;
+      }
     }
   }
 

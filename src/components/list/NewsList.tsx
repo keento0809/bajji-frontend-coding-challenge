@@ -4,8 +4,8 @@ import { NewsData } from "../../types/news";
 
 interface Props {
   newsData: NewsData[];
-  customStyle: string;
-  maxWidth: string;
+  customStyle?: string;
+  maxWidth?: string;
 }
 
 export default function NewsList({

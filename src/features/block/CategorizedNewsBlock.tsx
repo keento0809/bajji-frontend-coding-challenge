@@ -41,7 +41,7 @@ export default function CategorizedNewsBlock({
         <NewsList
           newsData={news && news}
           customStyle="categorized"
-          maxWidth="290px"
+          maxWidth="maxWidth290"
         />
       </section>
       <LoadMoreNewsButton label={newsType + " " + "HN"} onClick={handleClick} />
