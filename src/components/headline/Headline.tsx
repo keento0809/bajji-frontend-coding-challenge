@@ -1,20 +1,25 @@
 import styles from "./styles.module.scss";
+import { NewsData } from "../../types/news";
 
-export default function Headline() {
+interface Props {
+  headlineNews: NewsData;
+}
+
+export default function Headline({ headlineNews }: Props) {
   return (
     <div className={styles.headline}>
       <section className={styles.headline_titleSection}>
-        <p>Story</p>
+        <p>{headlineNews?.type}</p>
         <div className={styles.headline_title}>
           <h1>
-            FDA urges patch of Illumina devices with three critical flaws ranked
-            10 in severity (scmagazine.com)
+            {headlineNews?.title}{" "}
+            {headlineNews?.url && `(${headlineNews?.url})`}
           </h1>
         </div>
       </section>
       <section className={styles.headline_authorAndTimeSection}>
-        <span className={styles.headline_author}>by LinuxBender</span>
-        <span className={styles.headline_time}>12 minutes ago</span>
+        <span className={styles.headline_author}>by {headlineNews?.by}</span>
+        <span className={styles.headline_time}>{headlineNews?.time} ago</span>
       </section>
     </div>
   );
