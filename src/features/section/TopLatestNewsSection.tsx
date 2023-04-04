@@ -34,7 +34,7 @@ export default function TopLatestNewsSection() {
       <Headline headlineNews={news[0]} />
       <div className={styles.topLatestNewsSection_news}>
         <div className={styles.topLatestNewsSection_newsList}>
-          <NewsList newsData={splitNewsData} customStyle="" maxWidth="272px" />
+          <NewsList newsData={splitNewsData} />
           <LoadMoreNewsButton label="Top HN" onClick={handleClick} />
         </div>
         {currentScreenSize >= 1280 && (

@@ -4,6 +4,10 @@
   padding-bottom: 24px;
   border-bottom: 1px dashed #000;
 
+  @media screen and (min-width: 1280px) {
+    max-width: 272px;
+  }
+
   &_titleSection {
     & p {
       font-size: 14px;
@@ -43,5 +47,17 @@
 
   &_time {
     display: inline-block;
+  }
+}
+
+.maxWidth290 {
+  @media screen and (min-width: 1280px) {
+    max-width: 290px;
+  }
+}
+
+.maxWidth320 {
+  @media screen and (min-width: 1280px) {
+    max-width: 320px;
   }
 }

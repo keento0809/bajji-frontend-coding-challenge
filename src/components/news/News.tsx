@@ -4,15 +4,16 @@ import { checkTimeDifferences } from "../../helpers/checkTimeDifference";
 
 interface Props {
   news: NewsData;
-  maxWidth: string;
+  maxWidth?: string;
 }
 
-export default function News({ news, maxWidth }: Props) {
+export default function News({ news, maxWidth = "" }: Props) {
   // Convert unix time to hour or minutes
   const fixedTime = checkTimeDifferences(news?.time);
 
   return (
-    <div className={styles.news} style={{ maxWidth }}>
+    <div className={`${styles.news} ${styles[maxWidth]}`}>
+      {/* <div className={styles.news} style={{ maxWidth }}> */}
       <section className={styles.news_titleSection}>
         <p>{news?.type}</p>
         <div className={styles.news_title}>

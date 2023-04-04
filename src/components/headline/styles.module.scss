@@ -16,13 +16,21 @@
 
     & h1 {
       display: -webkit-box;
-      font-size: 48px;
+      font-size: 22px;
       font-weight: 600;
-      line-height: 52.8px;
+      line-height: 24px;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    @media screen and (min-width: 1280px) {
+      & h1 {
+        font-size: 48px;
+        font-weight: 600;
+        line-height: 52.8px;
+      }
     }
   }
 

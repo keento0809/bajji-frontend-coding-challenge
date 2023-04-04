@@ -29,7 +29,7 @@ export default function LatestNewsBlock() {
         <NewsList
           newsData={news && news}
           customStyle="latest"
-          maxWidth="320px"
+          maxWidth="maxWidth320"
         />
       </div>
       <LoadMoreNewsButton label="Latest" onClick={handleClick} />
