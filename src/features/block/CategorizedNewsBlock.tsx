@@ -24,7 +24,7 @@ export default function CategorizedNewsBlock({ newsStory, newsType }: Props) {
       <section>
         <NewsList
           newsData={news && news}
-          isCategoryNews={true}
+          customStyle="categorized"
           maxWidth="290px"
         />
       </section>
