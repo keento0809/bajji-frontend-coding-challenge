@@ -33,6 +33,9 @@ export default function Navbar() {
           <span
             key={content}
             className={
+              // content === activeNavMenu
+              //   ? `${styles.navbar_menu} ${styles.navbar_active}`
+              //   : styles.navbar_menu
               content === activeNavMenu
                 ? styles.navbar_menuActive
                 : styles.navbar_menu
