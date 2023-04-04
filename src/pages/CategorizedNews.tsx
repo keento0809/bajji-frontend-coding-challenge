@@ -41,7 +41,7 @@ export default function Category({ category }: Props) {
           customStyle="categorized"
           maxWidth="290px"
         />
-        <LoadMoreNewsButton />
+        <LoadMoreNewsButton label={category + " " + "HN"} />
       </div>
     </>
   );

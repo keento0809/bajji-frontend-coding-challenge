@@ -21,7 +21,7 @@ export default function LatestNewsBlock() {
           maxWidth="320px"
         />
       </div>
-      <LoadMoreNewsButton />
+      <LoadMoreNewsButton label="Latest" />
     </div>
   );
 }
