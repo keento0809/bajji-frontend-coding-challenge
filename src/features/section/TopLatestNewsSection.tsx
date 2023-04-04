@@ -13,13 +13,13 @@ export default function TopLatestNewsSection() {
   const { news, fetchNews } = useFetchNews(url);
 
   // Retrieve the news data without News for headline component
-  const headlineNews = news?.slice(1, news.length);
+  const splitNewsData = news?.slice(1, news.length);
   return (
     <div className={styles.topLatestNewsSection}>
       <Headline headlineNews={news[0]} />
       <div className={styles.topLatestNewsSection_news}>
         <div>
-          <NewsList />
+          <NewsList newsData={splitNewsData} />
           <LoadMoreNewsButton />
         </div>
         <div>

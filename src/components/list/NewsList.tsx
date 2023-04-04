@@ -1,35 +1,18 @@
 import News from "../news/News";
 import styles from "./styles.module.scss";
+import { NewsData } from "../../types/news";
 
-// TODO:Replace this array to NewsData fetched from API later
-const DUMMY_ARRAY = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-] as const;
+interface Props {
+  newsData: NewsData[];
+}
 
-export default function NewsList() {
+export default function NewsList({ newsData }: Props) {
   return (
     // TODO:Refactor the style for this div tag later
     <div style={{ maxWidth: "864px", paddingTop: "40px" }}>
       <div className={styles.newsList}>
-        {DUMMY_ARRAY.map((news) => {
-          return <News />;
+        {newsData.map((news) => {
+          return <News news={news} />;
         })}
       </div>
     </div>

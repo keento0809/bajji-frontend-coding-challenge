@@ -1,19 +1,24 @@
 import styles from "./styles.module.scss";
+import { NewsData } from "../../types/news";
 
-export default function News() {
+interface Props {
+  news: NewsData;
+}
+
+export default function News({ news }: Props) {
   return (
     <div className={styles.news}>
       <section className={styles.news_titleSection}>
-        <p>Story</p>
+        <p>{news?.type}</p>
         <div className={styles.news_title}>
           <h4>
-            Vectorized and performance-portable Quicksort (googleblog.com)
+            {news?.title} {news?.url && `(${news?.url})`}
           </h4>
         </div>
       </section>
       <section className={styles.news_authorAndTimeSection}>
-        <span className={styles.news_author}>by slackerIII</span>
-        <span className={styles.news_time}>22 hours ago</span>
+        <span className={styles.news_author}>by {news?.by}</span>
+        <span className={styles.news_time}>{news?.time} ago</span>
       </section>
     </div>
   );
