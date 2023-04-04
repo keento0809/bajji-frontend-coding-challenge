@@ -7,7 +7,9 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/:category" element={<CategorizedNews />} />
+      <Route path="/Ask" element={<CategorizedNews category="Ask" />} />
+      <Route path="/Show" element={<CategorizedNews category="Show" />} />
+      <Route path="/Jobs" element={<CategorizedNews category="Jobs" />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );

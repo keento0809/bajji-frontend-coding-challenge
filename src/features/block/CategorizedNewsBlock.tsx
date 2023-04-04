@@ -1,6 +1,5 @@
 import LoadMoreNewsButton from "../../components/button/LoadMoreNewsButton";
 import NewsList from "../../components/list/NewsList";
-import News from "../../components/news/News";
 import useFetchNews from "../../hooks/useFetchNews";
 import styles from "./styles.module.scss";
 
