@@ -13,7 +13,6 @@ export default function News({ news, maxWidth = "" }: Props) {
 
   return (
     <div className={`${styles.news} ${styles[maxWidth]}`}>
-      {/* <div className={styles.news} style={{ maxWidth }}> */}
       <section className={styles.news_titleSection}>
         <p>{news?.type}</p>
         <div className={styles.news_title}>
