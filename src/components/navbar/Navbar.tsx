@@ -7,7 +7,6 @@ import { NavMenus } from "../../types/navbar";
 export default function Navbar() {
   //TODO:Add a logic to change styles of the selected nav menu
   const fixedPathName = location.pathname.slice(1, location.pathname.length);
-  console.log(fixedPathName);
   // React state managing the current selected nav menu (Default value is "Top")
   const [activeNavMenu, setActiveNavMenu] = useState<NavMenus>("Top");
 
