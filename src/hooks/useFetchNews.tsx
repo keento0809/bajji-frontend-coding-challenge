@@ -31,7 +31,11 @@ export default function useFetchNews(url: string) {
       for (const newsId of newsData) {
         await translateNewsData(newsId);
       }
-      setNews(translatedNewsDataArray);
+      // sort newsData by time
+      const sortedTranslatedNewsDataArray = translatedNewsDataArray.sort(
+        (a, b) => b.time - a.time
+      );
+      setNews(sortedTranslatedNewsDataArray);
       // Turn off loading animation
       handleTurnOffLoader();
     } catch (error) {
