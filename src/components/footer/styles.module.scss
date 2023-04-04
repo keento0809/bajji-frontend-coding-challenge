@@ -3,14 +3,23 @@
   border-bottom: 1px solid #000;
 
   &_container {
-    padding: 40px 0;
+    padding: 40px 16px;
+
+    @media screen and (min-width: 1280px) {
+      padding: 40px 0;
+    }
   }
 
   &_contents {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+
+    @media screen and (min-width: 1280px) {
+      flex-direction: row;
+      align-items: center;
+    }
 
     & span {
       font-size: 12px;
@@ -25,10 +34,14 @@
   }
 
   &_copyright {
-    padding-top: 8px;
+    padding-top: 40px;
     font-size: 12px;
     line-height: 12px;
     font-weight: 500;
     font-size: 12px;
+
+    @media screen and (min-width: 1280px) {
+      padding-top: 8px;
+    }
   }
 }
