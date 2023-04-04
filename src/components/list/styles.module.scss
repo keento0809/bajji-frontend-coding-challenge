@@ -2,4 +2,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
+
+  &.categorized {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  &.latest {
+    grid-template-columns: 1fr;
+  }
 }
