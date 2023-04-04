@@ -11,14 +11,14 @@
   }
 
   &_title {
-    padding-top: 4px;
+    padding-top: 8px;
+    max-width: 1230px;
 
     & h1 {
       display: -webkit-box;
       font-size: 48px;
       font-weight: 600;
-      min-height: 60px;
-      max-height: 106px;
+      line-height: 52.8px;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
       overflow: hidden;
@@ -35,7 +35,6 @@
   }
 
   &_author {
-    display: inline-block;
     padding-right: 8px;
     font-size: 12px;
   }
