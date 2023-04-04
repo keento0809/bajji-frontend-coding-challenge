@@ -11,7 +11,6 @@ export default function useFetchNews(url: string) {
     );
     const translatedNews: NewsData = await response.json();
     // TODO:Stop unnecessary rendering
-    console.log(translatedNewsDataArray);
     const isTranslatedNewsExist = translatedNewsDataArray.find((news) => {
       return news?.id === translatedNews?.id;
     });
