@@ -1,11 +1,15 @@
 import styles from "./styles.module.scss";
 import { NewsData } from "../../types/news";
+import { checkTimeDifferences } from "../../helpers/checkTimeDifference";
 
 interface Props {
   headlineNews: NewsData;
 }
 
 export default function Headline({ headlineNews }: Props) {
+  // Convert unix time to hour or minutes
+  const fixedTime = checkTimeDifferences(headlineNews?.time);
+
   return (
     <div className={styles.headline}>
       <section className={styles.headline_titleSection}>
@@ -19,7 +23,7 @@ export default function Headline({ headlineNews }: Props) {
       </section>
       <section className={styles.headline_authorAndTimeSection}>
         <span className={styles.headline_author}>by {headlineNews?.by}</span>
-        <span className={styles.headline_time}>{headlineNews?.time} ago</span>
+        <span className={styles.headline_time}>{fixedTime} ago</span>
       </section>
     </div>
   );
