@@ -11,9 +11,10 @@ export default function useFetchNews(url: string) {
     );
     const translatedNews: NewsData = await response.json();
     // TODO:Stop unnecessary rendering
-    const isTranslatedNewsExist = translatedNewsDataArray.find(
-      (news) => news.id === translatedNews.id
-    );
+    console.log(translatedNewsDataArray);
+    const isTranslatedNewsExist = translatedNewsDataArray.find((news) => {
+      return news?.id === translatedNews?.id;
+    });
     if (!isTranslatedNewsExist) translatedNewsDataArray.push(translatedNews);
   };
 

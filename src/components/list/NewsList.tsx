@@ -16,7 +16,7 @@ export default function NewsList({
   return (
     <div className={`${styles.newsList} ${styles[customStyle]}`}>
       {newsData.map((news) => {
-        return <News key={news.id} news={news} maxWidth={maxWidth} />;
+        return <News key={news?.id} news={news} maxWidth={maxWidth} />;
       })}
     </div>
   );
