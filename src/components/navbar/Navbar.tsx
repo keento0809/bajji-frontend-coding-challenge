@@ -1,11 +1,30 @@
 import { useState } from "react";
 import { navMenuContent } from "../../constants/navbar";
 import styles from "./styles.module.scss";
+import { useLocation, useNavigate } from "react-router-dom";
+import { NavMenus } from "../../types/navbar";
+import { checkInitialLocation } from "../../helpers/checkInitialLocation";
 
 export default function Navbar() {
-  //TODO:Add a logic to change styles of the selected nav menu
-  // React state managing the current selected nav menu (Default value is "Top")
-  const [activeNavMenu, setActiveNavMenu] = useState("Top");
+  // Locate current location to apply stylings (color: #fff, background-color: #000) to corresponded selected nav menu
+  const location = useLocation();
+  const fixedPathName = location.pathname.slice(1, location.pathname.length);
+
+  // React state managing the current selected nav menu
+  const [activeNavMenu, setActiveNavMenu] = useState<NavMenus>(
+    // checkInitialLocation confirms current location and return current pathname. So when the page is refreshed, the correct nav menu is applied stylings (color: #fff, background-color: #000)
+    checkInitialLocation(fixedPathName)
+  );
+
+  const navigate = useNavigate();
+
+  // Define click event to jump to other pages
+  const handleChangeNewsCategory = (content: NavMenus) => {
+    // When the selected nav menu is "Top", the pathname should be "/"
+    const navigation = content === "Top" ? "/" : content;
+    navigate(navigation);
+    setActiveNavMenu(content);
+  };
 
   return (
     <nav className={styles.navbar}>
@@ -18,6 +37,7 @@ export default function Navbar() {
                 ? styles.navbar_menuActive
                 : styles.navbar_menu
             }
+            onClick={() => handleChangeNewsCategory(content)}
           >
             {content}
           </span>

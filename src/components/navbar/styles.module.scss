@@ -8,6 +8,12 @@
     padding: 13px 24px;
     cursor: pointer;
     color: inherit;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
   }
 
   &_menuActive {
