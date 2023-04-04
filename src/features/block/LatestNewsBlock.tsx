@@ -1,15 +1,26 @@
 import LoadMoreNewsButton from "../../components/button/LoadMoreNewsButton";
-import News from "../../components/news/News";
 import styles from "./styles.module.scss";
 import NewsList from "../../components/list/NewsList";
 import useFetchNews from "../../hooks/useFetchNews";
+import { useState, useEffect } from "react";
 
 export default function LatestNewsBlock() {
+  const [newsCount, setNewsCount] = useState(5);
   // Define url for fetching categorized news from API
-  const url = `https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty&limitToFirst=4&orderBy="$key"`;
+  const url = `https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"`;
 
   // Declare useFetchNews custom hook with url above
   const { news, fetchNews } = useFetchNews(url);
+
+  // update newsCount to load more NewsData from API
+  const handleClick = () => {
+    setNewsCount((prevState) => prevState + 5);
+  };
+
+  // When newsCount is updated, fetch more NewsData
+  useEffect(() => {
+    fetchNews(url);
+  }, [newsCount]);
 
   return (
     <div className={styles.latestNewsBlock}>
@@ -21,7 +32,7 @@ export default function LatestNewsBlock() {
           maxWidth="320px"
         />
       </div>
-      <LoadMoreNewsButton label="Latest" />
+      <LoadMoreNewsButton label="Latest" onClick={handleClick} />
     </div>
   );
 }

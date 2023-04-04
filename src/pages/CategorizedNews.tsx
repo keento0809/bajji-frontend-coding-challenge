@@ -1,5 +1,5 @@
 import useFetchNews from "../hooks/useFetchNews";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import Headline from "../components/headline/Headline";
 import styles from "./styles.module.scss";
@@ -13,8 +13,10 @@ interface Props {
 export default function Category({ category }: Props) {
   const fixedCategory = category === "Jobs" ? "job" : category.toLowerCase();
 
+  const [newsCount, setNewsCount] = useState(17);
+
   // Define url for fetching categorized news from API
-  const url = `https://hacker-news.firebaseio.com/v0/${fixedCategory}stories.json?print=pretty&limitToFirst=17&orderBy="$key"`;
+  const url = `https://hacker-news.firebaseio.com/v0/${fixedCategory}stories.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"`;
 
   // Declare useFetchNews custom hook with url above
   const { news, fetchNews } = useFetchNews(url);
@@ -24,10 +26,15 @@ export default function Category({ category }: Props) {
   const location = useLocation();
   const pathname = location.pathname;
 
+  // update newsCount to load more NewsData from API
+  const handleClick = () => {
+    setNewsCount((prevState) => prevState + 16);
+  };
+
   // Every time users move to another category news view page, corresponded news data should be fetched from API
   useEffect(() => {
     fetchNews(url);
-  }, [pathname]);
+  }, [pathname, newsCount]);
 
   return (
     <>
@@ -41,7 +48,10 @@ export default function Category({ category }: Props) {
           customStyle="categorized"
           maxWidth="290px"
         />
-        <LoadMoreNewsButton label={category + " " + "HN"} />
+        <LoadMoreNewsButton
+          label={category + " " + "HN"}
+          onClick={handleClick}
+        />
       </div>
     </>
   );
