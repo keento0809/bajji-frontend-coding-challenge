@@ -10,6 +10,7 @@ export default function CategoryNewsSection() {
             key={categoryObj.newsType}
             newsStory={categoryObj.newsStory}
             newsType={categoryObj.newsType}
+            initialNumOfNews={categoryObj.initialNumOfNews}
           />
         );
       })}

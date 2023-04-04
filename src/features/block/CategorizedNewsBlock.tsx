@@ -2,18 +2,35 @@ import LoadMoreNewsButton from "../../components/button/LoadMoreNewsButton";
 import NewsList from "../../components/list/NewsList";
 import useFetchNews from "../../hooks/useFetchNews";
 import styles from "./styles.module.scss";
+import { useEffect, useState } from "react";
 
 interface Props {
   newsStory: string;
   newsType: string;
+  initialNumOfNews: number;
 }
 
-export default function CategorizedNewsBlock({ newsStory, newsType }: Props) {
+export default function CategorizedNewsBlock({
+  newsStory,
+  newsType,
+  initialNumOfNews,
+}: Props) {
+  const [newsCount, setNewsCount] = useState(initialNumOfNews);
   // Define url for fetching categorized news from API
-  const url = `https://hacker-news.firebaseio.com/v0/${newsStory}.json?print=pretty&limitToFirst=4&orderBy="$key"`;
+  const url = `https://hacker-news.firebaseio.com/v0/${newsStory}.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"`;
 
   // Declare useFetchNews custom hook with url above
   const { news, fetchNews } = useFetchNews(url);
+
+  // update newsCount to load more NewsData from API
+  const handleClick = () => {
+    setNewsCount((prevState) => prevState + 4);
+  };
+
+  // When newsCount is updated, fetch more NewsData
+  useEffect(() => {
+    fetchNews(url);
+  }, [newsCount]);
 
   return (
     <div className={styles.categorizedNewsBlock}>
@@ -27,7 +44,7 @@ export default function CategorizedNewsBlock({ newsStory, newsType }: Props) {
           maxWidth="290px"
         />
       </section>
-      <LoadMoreNewsButton label={newsType + " " + "HN"} />
+      <LoadMoreNewsButton label={newsType + " " + "HN"} onClick={handleClick} />
     </div>
   );
 }
