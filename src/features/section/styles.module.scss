@@ -1,44 +1,10 @@
-/* Styles for LatestNewsSection  */
-
-.latestNewsSection {
-  padding-top: 40px;
-  max-width: 320px;
-
-  &_title {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 24px;
-    padding: 16px 0;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-  }
-
-  &_newsListContainer {
-    padding-top: 24px;
-    display: grid;
-    grid-template-columns: "1fr";
-    gap: 24px;
-  }
-}
-
-/* Styles for CategorizedNewsSection  */
-
-.categorizedNewsSection {
+.topLatestNewsSection {
   padding-bottom: 40px;
 
-  &_title {
-    padding: 24px 0;
-
-    & h1 {
-      font-size: 48px;
-      line-height: 53px;
-      font-weight: 700;
-    }
-  }
-
-  &_newsList {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 24px;
+  &_news {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 48px;
   }
 }
