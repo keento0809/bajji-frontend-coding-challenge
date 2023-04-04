@@ -27,7 +27,7 @@ export default function CategorizedNewsBlock({ newsStory, newsType }: Props) {
           maxWidth="290px"
         />
       </section>
-      <LoadMoreNewsButton />
+      <LoadMoreNewsButton label={newsType + " " + "HN"} />
     </div>
   );
 }
