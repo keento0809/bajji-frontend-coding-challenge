@@ -19,7 +19,7 @@ export default function TopLatestNewsSection() {
       <Headline headlineNews={news[0]} />
       <div className={styles.topLatestNewsSection_news}>
         <div>
-          <NewsList newsData={splitNewsData} />
+          <NewsList newsData={splitNewsData} maxWidth="272px" />
           <LoadMoreNewsButton />
         </div>
         <div>

@@ -3,11 +3,12 @@ import { NewsData } from "../../types/news";
 
 interface Props {
   news: NewsData;
+  maxWidth: string;
 }
 
-export default function News({ news }: Props) {
+export default function News({ news, maxWidth }: Props) {
   return (
-    <div className={styles.news}>
+    <div className={styles.news} style={{ maxWidth }}>
       <section className={styles.news_titleSection}>
         <p>{news?.type}</p>
         <div className={styles.news_title}>

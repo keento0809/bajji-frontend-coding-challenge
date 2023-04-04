@@ -4,15 +4,26 @@ import { NewsData } from "../../types/news";
 
 interface Props {
   newsData: NewsData[];
+  isCategoryNews?: boolean;
+  maxWidth: string;
 }
 
-export default function NewsList({ newsData }: Props) {
+export default function NewsList({
+  newsData,
+  isCategoryNews = false,
+  maxWidth,
+}: Props) {
   return (
-    // TODO:Refactor the style for this div tag later
-    <div style={{ maxWidth: "864px", paddingTop: "40px" }}>
-      <div className={styles.newsList}>
+    <div style={{ paddingTop: "40px" }}>
+      <div
+        className={
+          isCategoryNews
+            ? `${styles.newsList} ${styles.categorized}`
+            : styles.newsList
+        }
+      >
         {newsData.map((news) => {
-          return <News news={news} />;
+          return <News key={news.id} news={news} maxWidth={maxWidth} />;
         })}
       </div>
     </div>
