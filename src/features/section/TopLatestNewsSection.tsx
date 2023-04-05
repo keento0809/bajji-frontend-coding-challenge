@@ -11,8 +11,6 @@ export default function TopLatestNewsSection() {
   // Define url for fetching top-stories news from API
   const url = `https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"`;
 
-  const currentScreenSize = window.innerWidth;
-
   // Declare useFetchNews custom hook with url above
   const { news, fetchNews } = useFetchNews(url, "topNews");
 
@@ -37,11 +35,9 @@ export default function TopLatestNewsSection() {
           <NewsList newsData={splitNewsData} />
           <LoadMoreNewsButton label="Top HN" onClick={handleClick} />
         </div>
-        {currentScreenSize >= 1280 && (
-          <div>
-            <LatestNewsBlock />
-          </div>
-        )}
+        <div>
+          <LatestNewsBlock />
+        </div>
       </div>
     </div>
   );

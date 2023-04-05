@@ -2,7 +2,10 @@
 
 .latestNewsBlock {
   padding-top: 40px;
-  max-width: 320px;
+
+  @media screen and (min-width: 1280px) {
+    max-width: 320px;
+  }
 
   &_title {
     font-weight: 700;
