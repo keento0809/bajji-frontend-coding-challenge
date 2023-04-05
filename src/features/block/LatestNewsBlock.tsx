@@ -2,7 +2,7 @@ import LoadMoreNewsButton from "../../components/button/LoadMoreNewsButton";
 import styles from "./styles.module.scss";
 import NewsList from "../../components/list/NewsList";
 import useFetchNews from "../../hooks/useFetchNews";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 export default function LatestNewsBlock() {
   const [newsCount, setNewsCount] = useState(5);
@@ -11,6 +11,8 @@ export default function LatestNewsBlock() {
 
   // Declare useFetchNews custom hook with url above
   const { news, fetchNews } = useFetchNews(url, "otherNews");
+
+  const memorizedSplitNewsData = useMemo(() => news, [news]);
 
   // update newsCount to load more NewsData from API
   const handleClick = () => {
@@ -27,7 +29,7 @@ export default function LatestNewsBlock() {
       <h3 className={styles.latestNewsBlock_title}>The Latest</h3>
       <div className={styles.latestNewsBlock_newsListContainer}>
         <NewsList
-          newsData={news && news}
+          newsData={news && memorizedSplitNewsData}
           customStyle="latest"
           maxWidth="maxWidth320"
         />

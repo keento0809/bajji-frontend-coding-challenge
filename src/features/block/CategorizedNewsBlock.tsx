@@ -2,7 +2,11 @@ import LoadMoreNewsButton from "../../components/button/LoadMoreNewsButton";
 import NewsList from "../../components/list/NewsList";
 import useFetchNews from "../../hooks/useFetchNews";
 import styles from "./styles.module.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
+import { useQuery } from "react-query";
+import { NewsData } from "../../types/news";
+import Loader from "../../components/loader/Loader";
+import { getNewsData } from "../../helpers/getNewsData";
 
 interface Props {
   newsStory: string;
@@ -20,31 +24,44 @@ export default function CategorizedNewsBlock({
   const url = `https://hacker-news.firebaseio.com/v0/${newsStory}.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"`;
 
   // Declare useFetchNews custom hook with url above
-  const { news, fetchNews } = useFetchNews(url, "otherNews");
+  // const { news, fetchNews } = useFetchNews(url, "otherNews");
 
+  // test reactQuery
+  const categoryNewsQuery = useQuery("categoryNews", () => getNewsData(url));
+
+  const memorizedSplitNewsData = useMemo(
+    () => categoryNewsQuery?.data,
+    [categoryNewsQuery?.data]
+  );
   // update newsCount to load more NewsData from API
   const handleClick = () => {
     setNewsCount((prevState) => prevState + 4);
   };
 
   // When newsCount is updated, fetch more NewsData
-  useEffect(() => {
-    fetchNews(url, "otherNews");
-  }, [newsCount]);
+  // useEffect(() => {
+  //   fetchNews(url, "otherNews");
+  // }, [newsCount]);
 
   return (
-    <div className={styles.categorizedNewsBlock}>
-      <section className={styles.categorizedNewsBlock_title}>
-        <h1>{newsType} HN</h1>
-      </section>
-      <section>
-        <NewsList
-          newsData={news && news}
-          customStyle="categorized"
-          maxWidth="maxWidth290"
+    <>
+      {categoryNewsQuery.isLoading && <Loader />}
+      <div className={styles.categorizedNewsBlock}>
+        <section className={styles.categorizedNewsBlock_title}>
+          <h1>{newsType} HN</h1>
+        </section>
+        <section>
+          <NewsList
+            newsData={memorizedSplitNewsData}
+            customStyle="categorized"
+            maxWidth="maxWidth290"
+          />
+        </section>
+        <LoadMoreNewsButton
+          label={newsType + " " + "HN"}
+          onClick={handleClick}
         />
-      </section>
-      <LoadMoreNewsButton label={newsType + " " + "HN"} onClick={handleClick} />
-    </div>
+      </div>
+    </>
   );
 }

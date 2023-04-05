@@ -1,6 +1,6 @@
 import useFetchNews from "../hooks/useFetchNews";
-import { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useEffect, useState, useMemo } from "react";
+import { useLocation } from "react-router-dom";
 import Headline from "../components/headline/Headline";
 import styles from "./styles.module.scss";
 import NewsList from "../components/list/NewsList";
@@ -22,6 +22,8 @@ export default function Category({ category }: Props) {
   const { news, fetchNews } = useFetchNews(url, "otherNews");
   const splitNewsData = news.slice(1, news.length);
 
+  const memorizedSplitNewsData = useMemo(() => splitNewsData, [news]);
+
   // Check current pathname to identify if users jump to another category news view page or not
   const location = useLocation();
   const pathname = location.pathname;
@@ -36,6 +38,8 @@ export default function Category({ category }: Props) {
     fetchNews(url, "otherNews");
   }, [pathname, newsCount]);
 
+  console.log("rendering-categoryNews");
+
   return (
     <>
       <div className={styles.categoryNews}>
@@ -44,7 +48,8 @@ export default function Category({ category }: Props) {
       <Headline headlineNews={news[0]} />
       <div className={styles.categoryNews_newsList}>
         <NewsList
-          newsData={splitNewsData}
+          newsData={memorizedSplitNewsData}
+          // newsData={splitNewsData}
           customStyle="categorized"
           maxWidth="maxWidth290"
         />

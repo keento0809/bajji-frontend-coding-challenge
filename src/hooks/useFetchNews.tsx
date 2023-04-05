@@ -38,7 +38,7 @@ export default function useFetchNews(
   async function fetchNews(url: string, txt: "topNews" | "otherNews") {
     try {
       // Turn on loading animation
-      txt === "topNews" ? handleTurnOnLoaderForTopNews() : handleTurnOnLoader();
+      // txt === "topNews" ? handleTurnOnLoaderForTopNews() : handleTurnOnLoader();
       const response = await fetch(url);
       const newsData: number[] = await response.json();
       for (const newsId of newsData) {
@@ -50,9 +50,9 @@ export default function useFetchNews(
       );
       setNews(sortedTranslatedNewsDataArray);
       // Turn off loading animation
-      txt === "topNews"
-        ? handleTurnOffLoaderForTopNews()
-        : handleTurnOffLoader();
+      // txt === "topNews"
+      //   ? handleTurnOffLoaderForTopNews()
+      //   : handleTurnOffLoader();
     } catch (error) {
       console.log(error);
     }

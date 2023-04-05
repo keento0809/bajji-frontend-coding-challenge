@@ -4,7 +4,7 @@ import NewsList from "../../components/list/NewsList";
 import LatestNewsBlock from "../block/LatestNewsBlock";
 import styles from "./styles.module.scss";
 import useFetchNews from "../../hooks/useFetchNews";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 export default function TopLatestNewsSection() {
   const [newsCount, setNewsCount] = useState(19);
@@ -16,6 +16,8 @@ export default function TopLatestNewsSection() {
 
   // Retrieve the news data without News for headline component
   const splitNewsData = news?.slice(1, news.length);
+
+  const memorizedSplitNewsData = useMemo(() => splitNewsData, [news]);
 
   // update newsCount to load more NewsData from API
   const handleClick = () => {
@@ -32,7 +34,8 @@ export default function TopLatestNewsSection() {
       <Headline headlineNews={news[0]} />
       <div className={styles.topLatestNewsSection_news}>
         <div className={styles.topLatestNewsSection_newsList}>
-          <NewsList newsData={splitNewsData} />
+          <NewsList newsData={memorizedSplitNewsData} />
+          {/* <NewsList newsData={splitNewsData} /> */}
           <LoadMoreNewsButton label="Top HN" onClick={handleClick} />
         </div>
         <div>
