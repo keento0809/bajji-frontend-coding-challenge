@@ -23,7 +23,7 @@ export default function News({ news, maxWidth = "" }: Props) {
       </section>
       <section className={styles.news_authorAndTimeSection}>
         <span className={styles.news_author}>by {news?.by}</span>
-        <span className={styles.news_time}>{fixedTime} ago</span>
+        <span className={styles.news_time}>{fixedTime}</span>
       </section>
     </div>
   );

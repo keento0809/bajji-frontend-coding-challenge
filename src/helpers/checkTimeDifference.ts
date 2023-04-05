@@ -5,12 +5,14 @@ export const checkTimeDifferences = (unix_timestamp: number) => {
   const diff = Math.abs(diffTimeStamp) / (60 * 60 * 1000);
 
   if (diff >= 24) {
-    return Math.floor(diff / 24) + " days";
+    return Math.floor(diff / 24) + " days ago";
   } else if (diff < 24 && diff >= 1) {
-    return Math.floor(diff) + " hours";
+    return Math.floor(diff) + " hours ago";
   } else if (diff < 1 && diff > 0) {
-    return Math.floor(diff * 60) + " minutes";
+    return Math.floor(diff * 60) === 0
+      ? "now"
+      : Math.floor(diff * 60) + " minutes ago";
   } else {
-    return "now";
+    return;
   }
 };
