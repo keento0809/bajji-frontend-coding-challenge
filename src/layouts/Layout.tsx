@@ -13,10 +13,12 @@ interface Props {
 }
 
 export default function Layout({ children }: Props) {
-  const { isLoading } = useLoadingContext();
+  const { isOtherNewsLoading, isTopNewsLoading } = useLoadingContext();
+  console.log(isOtherNewsLoading, isTopNewsLoading);
+
   return (
     <>
-      {isLoading && <Loader />}
+      {(isTopNewsLoading || isOtherNewsLoading) && <Loader />}
       <TopHeader />
       <MainContentWrapper>
         <MainHeader />

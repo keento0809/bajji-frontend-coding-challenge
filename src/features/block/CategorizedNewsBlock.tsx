@@ -20,7 +20,7 @@ export default function CategorizedNewsBlock({
   const url = `https://hacker-news.firebaseio.com/v0/${newsStory}.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"`;
 
   // Declare useFetchNews custom hook with url above
-  const { news, fetchNews } = useFetchNews(url);
+  const { news, fetchNews } = useFetchNews(url, "otherNews");
 
   // update newsCount to load more NewsData from API
   const handleClick = () => {
@@ -29,7 +29,7 @@ export default function CategorizedNewsBlock({
 
   // When newsCount is updated, fetch more NewsData
   useEffect(() => {
-    fetchNews(url);
+    fetchNews(url, "otherNews");
   }, [newsCount]);
 
   return (
