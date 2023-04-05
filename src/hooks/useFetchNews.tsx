@@ -25,10 +25,13 @@ export default function useFetchNews(
     );
     const translatedNews: NewsData = await response.json();
     // TODO:Stop unnecessary rendering
-    const isTranslatedNewsExist = translatedNewsDataArray.find((news) => {
-      return news?.id === translatedNews?.id;
-    });
-    if (!isTranslatedNewsExist) translatedNewsDataArray.push(translatedNews);
+    // Only add translatedNews to translatedNewsDataArray if it is not falsy
+    if (translatedNews) {
+      const isTranslatedNewsExist = translatedNewsDataArray.find((news) => {
+        return news?.id === translatedNews?.id;
+      });
+      if (!isTranslatedNewsExist) translatedNewsDataArray.push(translatedNews);
+    }
   }
 
   // function fetch news (array of number) and update news data
@@ -43,7 +46,7 @@ export default function useFetchNews(
       }
       // sort newsData by time
       const sortedTranslatedNewsDataArray = translatedNewsDataArray.sort(
-        (a, b) => b.time - a.time
+        (a, b) => b?.time - a?.time
       );
       setNews(sortedTranslatedNewsDataArray);
       // Turn off loading animation
