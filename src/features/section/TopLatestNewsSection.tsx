@@ -14,7 +14,7 @@ export default function TopLatestNewsSection() {
   const currentScreenSize = window.innerWidth;
 
   // Declare useFetchNews custom hook with url above
-  const { news, fetchNews } = useFetchNews(url);
+  const { news, fetchNews } = useFetchNews(url, "topNews");
 
   // Retrieve the news data without News for headline component
   const splitNewsData = news?.slice(1, news.length);
@@ -26,7 +26,7 @@ export default function TopLatestNewsSection() {
 
   // When newsCount is updated, fetch more NewsData
   useEffect(() => {
-    fetchNews(url);
+    fetchNews(url, "topNews");
   }, [newsCount]);
 
   return (

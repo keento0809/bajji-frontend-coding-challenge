@@ -1,11 +1,21 @@
 import { useState, useEffect } from "react";
 import { NewsData } from "../types/news";
 import useLoadingContext from "./useLoadingContext";
+import { useLocation } from "react-router-dom";
 
-export default function useFetchNews(url: string) {
+export default function useFetchNews(
+  url: string,
+  txt: "topNews" | "otherNews"
+) {
   const [news, setNews] = useState<NewsData[]>([]);
-  const { handleTurnOnLoader, handleTurnOffLoader } = useLoadingContext();
+  const {
+    handleTurnOnLoader,
+    handleTurnOffLoader,
+    handleTurnOnLoaderForTopNews,
+    handleTurnOffLoaderForTopNews,
+  } = useLoadingContext();
   const translatedNewsDataArray: NewsData[] = [];
+  const location = useLocation();
 
   // function translates newsId to detailed news data
   async function translateNewsData(newsId: number) {
@@ -22,10 +32,10 @@ export default function useFetchNews(url: string) {
   }
 
   // function fetch news (array of number) and update news data
-  async function fetchNews(url: string) {
+  async function fetchNews(url: string, txt: "topNews" | "otherNews") {
     try {
       // Turn on loading animation
-      handleTurnOnLoader();
+      txt === "topNews" ? handleTurnOnLoaderForTopNews() : handleTurnOnLoader();
       const response = await fetch(url);
       const newsData: number[] = await response.json();
       for (const newsId of newsData) {
@@ -37,14 +47,16 @@ export default function useFetchNews(url: string) {
       );
       setNews(sortedTranslatedNewsDataArray);
       // Turn off loading animation
-      handleTurnOffLoader();
+      txt === "topNews"
+        ? handleTurnOffLoaderForTopNews()
+        : handleTurnOffLoader();
     } catch (error) {
       console.log(error);
     }
   }
 
   useEffect(() => {
-    fetchNews(url);
+    fetchNews(url, txt);
   }, []);
 
   return { news, fetchNews };

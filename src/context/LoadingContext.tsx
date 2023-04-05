@@ -1,9 +1,12 @@
 import { createContext, ReactNode, useState } from "react";
 
 interface LoadingCtx {
-  isLoading: boolean;
+  isOtherNewsLoading: boolean;
+  isTopNewsLoading: boolean;
   handleTurnOnLoader: () => void;
   handleTurnOffLoader: () => void;
+  handleTurnOnLoaderForTopNews: () => void;
+  handleTurnOffLoaderForTopNews: () => void;
 }
 
 interface Props {
@@ -11,24 +14,43 @@ interface Props {
 }
 
 export const LoadingContext = createContext<LoadingCtx>({
-  isLoading: false,
+  isTopNewsLoading: false,
+  isOtherNewsLoading: false,
   handleTurnOnLoader: () => {},
   handleTurnOffLoader: () => {},
+  handleTurnOnLoaderForTopNews: () => {},
+  handleTurnOffLoaderForTopNews: () => {},
 });
 
 export default function LoadingContextProvider({ children }: Props) {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isTopNewsLoading, setIsTopNewsLoading] = useState(false);
+  const [isOtherNewsLoading, setIsOtherNewsLoading] = useState(false);
+
+  const handleTurnOnLoaderForTopNews = () => {
+    setIsTopNewsLoading(true);
+  };
+
+  const handleTurnOffLoaderForTopNews = () => {
+    setIsTopNewsLoading(false);
+  };
 
   const handleTurnOnLoader = () => {
-    setIsLoading(true);
+    setIsOtherNewsLoading(true);
   };
   const handleTurnOffLoader = () => {
-    setIsLoading(false);
+    setIsOtherNewsLoading(false);
   };
 
   return (
     <LoadingContext.Provider
-      value={{ isLoading, handleTurnOnLoader, handleTurnOffLoader }}
+      value={{
+        isOtherNewsLoading,
+        isTopNewsLoading,
+        handleTurnOnLoader,
+        handleTurnOffLoader,
+        handleTurnOnLoaderForTopNews,
+        handleTurnOffLoaderForTopNews,
+      }}
     >
       {children}
     </LoadingContext.Provider>

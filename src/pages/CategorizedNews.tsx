@@ -19,7 +19,7 @@ export default function Category({ category }: Props) {
   const url = `https://hacker-news.firebaseio.com/v0/${fixedCategory}stories.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"`;
 
   // Declare useFetchNews custom hook with url above
-  const { news, fetchNews } = useFetchNews(url);
+  const { news, fetchNews } = useFetchNews(url, "otherNews");
   const splitNewsData = news.slice(1, news.length);
 
   // Check current pathname to identify if users jump to another category news view page or not
@@ -33,7 +33,7 @@ export default function Category({ category }: Props) {
 
   // Every time users move to another category news view page, corresponded news data should be fetched from API
   useEffect(() => {
-    fetchNews(url);
+    fetchNews(url, "otherNews");
   }, [pathname, newsCount]);
 
   return (
