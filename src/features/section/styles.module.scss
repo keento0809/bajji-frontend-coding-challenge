@@ -2,8 +2,8 @@
   padding-bottom: 40px;
 
   &_news {
-    // overflow: hidden;
     flex: 1;
+
     @media screen and (min-width: 1280px) {
       display: flex;
       flex-direction: row;
@@ -14,5 +14,10 @@
 
   &_newsList {
     padding-top: 40px;
+    padding-bottom: 24px;
+
+    @media screen and (min-width: 1280px) {
+      padding-bottom: 0;
+    }
   }
 }
