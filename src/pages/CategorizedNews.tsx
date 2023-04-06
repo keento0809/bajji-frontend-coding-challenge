@@ -3,9 +3,10 @@ import Headline from "../components/headline/Headline";
 import styles from "./styles.module.scss";
 import NewsList from "../components/list/NewsList";
 import LoadMoreNewsButton from "../components/button/LoadMoreNewsButton";
-import { useQuery } from "react-query";
+import { useQuery, useIsFetching } from "react-query";
 import { getNewsData } from "../helpers/getNewsData";
 import { fakeNewsData } from "../constants/news";
+import Loader from "../components/loader/Loader";
 
 interface Props {
   category: string;
@@ -74,9 +75,11 @@ export default function Category({ category }: Props) {
     setNewsCount((prevState) => prevState + (initialNewsCount - 1));
   };
   console.log("rendering-categoryNews", categoryNewsQuery.isLoading);
+  const isFetching = useIsFetching();
 
   return (
     <>
+      {(categoryNewsQuery.isLoading || isFetching !== 0) && <Loader />}
       <div className={styles.categoryNews}>
         <h1 className={styles.categoryNews_title}>{category} HN</h1>
       </div>
