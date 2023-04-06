@@ -1,13 +1,10 @@
-import useFetchNews from "../hooks/useFetchNews";
 import { useEffect, useState, useMemo, useCallback } from "react";
-import { useLocation } from "react-router-dom";
 import Headline from "../components/headline/Headline";
 import styles from "./styles.module.scss";
 import NewsList from "../components/list/NewsList";
 import LoadMoreNewsButton from "../components/button/LoadMoreNewsButton";
 import { useQuery } from "react-query";
 import { getNewsData } from "../helpers/getNewsData";
-import { NewsData } from "../types/news";
 import { fakeNewsData } from "../constants/news";
 
 interface Props {
@@ -42,7 +39,7 @@ export default function Category({ category }: Props) {
       keepPreviousData: true,
       cacheTime: 10 * 60 * 1000,
       placeholderData: fakeNewsData,
-      staleTime: 60000,
+      staleTime: 600000,
     }
   );
 
@@ -62,20 +59,20 @@ export default function Category({ category }: Props) {
       />
     );
   }, [category, splitNewsData]);
-  // Check current pathname to identify if users jump to another category news view page or not
-  const location = useLocation();
-  const pathname = location.pathname;
+
+  // Memorize Headline component by useMemo hook
+  const memorizedHeadline = useMemo(() => {
+    return (
+      <Headline
+        headlineNews={categoryNewsQuery.data && categoryNewsQuery?.data[0]}
+      />
+    );
+  }, [category, categoryNewsQuery.data]);
 
   // update newsCount to load more NewsData from API
   const handleClick = () => {
-    setNewsCount((prevState) => prevState + 16);
+    setNewsCount((prevState) => prevState + (initialNewsCount - 1));
   };
-
-  // Every time users move to another category news view page, corresponded news data should be fetched from API
-  // useEffect(() => {
-  //   fetchNews(url, "otherNews");
-  // }, [pathname, newsCount]);
-
   console.log("rendering-categoryNews", categoryNewsQuery.isLoading);
 
   return (
@@ -83,15 +80,8 @@ export default function Category({ category }: Props) {
       <div className={styles.categoryNews}>
         <h1 className={styles.categoryNews_title}>{category} HN</h1>
       </div>
-      <Headline
-        headlineNews={categoryNewsQuery.data && categoryNewsQuery?.data[0]}
-      />
+      {memorizedHeadline}
       <div className={styles.categoryNews_newsList}>
-        {/* <NewsList
-          newsData={memorizedSplitNewsData}
-          customStyle="categorized"
-          maxWidth="maxWidth290"
-        /> */}
         {memorizedNewsList}
         <LoadMoreNewsButton
           label={category + " " + "HN"}

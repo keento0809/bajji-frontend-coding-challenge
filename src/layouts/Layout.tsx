@@ -5,19 +5,14 @@ import Navbar from "../components/navbar/Navbar";
 import MainContentWrapper from "../components/wrapper/MainContentWrapper";
 import NewsContentWrapper from "../components/wrapper/NewsContentWrapper";
 import Footer from "../components/footer/Footer";
-import Loader from "../components/loader/Loader";
-import useLoadingContext from "../hooks/useLoadingContext";
 
 interface Props {
   children: ReactNode;
 }
 
 export default function Layout({ children }: Props) {
-  // const { isOtherNewsLoading, isTopNewsLoading } = useLoadingContext();
-
   return (
     <>
-      {/* {(isTopNewsLoading || isOtherNewsLoading) && <Loader />} */}
       <TopHeader />
       <MainContentWrapper>
         <MainHeader />

@@ -13,11 +13,13 @@ export default function NewsList({
   customStyle = "",
   maxWidth,
 }: Props) {
-  console.log("rendering-newsList ");
+  console.log(
+    "rendering-newsList ",
+    newsData && newsData.length > 1 && newsData[0].type
+  );
   return (
     <div className={`${styles.newsList} ${styles[customStyle]}`}>
       {newsData &&
-        newsData.length > 1 &&
         newsData?.map((news) => {
           return <News key={news?.id} news={news} maxWidth={maxWidth} />;
         })}
