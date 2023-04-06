@@ -10,13 +10,13 @@
 1. Git コマンドを使用して、Vite アプリケーションのリポジトリをクローンします。以下のコマンドを実行してください。
 
 ```
-git clone <リポジトリのURL>
+git clone https://github.com/keento0809/bajji-frontend-coding-challenge.git
 ```
 
 2. コマンドラインで、クローンしたディレクトリに移動します。
 
 ```
-cd <ディレクトリのパス>
+cd bajji-frontend-coding-challenge
 ```
 
 3. `npm install` を実行して、アプリケーションの依存関係をインストールします。
