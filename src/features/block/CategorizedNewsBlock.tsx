@@ -27,15 +27,31 @@ export default function CategorizedNewsBlock({
   // const { news, fetchNews } = useFetchNews(url, "otherNews");
 
   // test reactQuery
-  const categoryNewsQuery = useQuery("categoryNews", () => getNewsData(url));
-
-  const memorizedSplitNewsData = useMemo(
-    () => categoryNewsQuery?.data,
-    [categoryNewsQuery?.data]
+  const categoryNewsQuery = useQuery(
+    ["categoryNews", newsCount],
+    () => getNewsData(url),
+    { keepPreviousData: true }
   );
+
+  console.log(categoryNewsQuery?.data);
+
+  // const memorizedSplitNewsData = useMemo(
+  //   () => categoryNewsQuery?.data,
+  //   [newsStory]
+  // );
+
+  // const memorizedNewsList = useMemo(() => {
+  //   return (
+  //     <NewsList
+  //       newsData={memorizedSplitNewsData}
+  //       customStyle="categorized"
+  //       maxWidth="maxWidth320"
+  //     />
+  //   );
+  // }, [newsType]);
   // update newsCount to load more NewsData from API
   const handleClick = () => {
-    setNewsCount((prevState) => prevState + 4);
+    setNewsCount((prevState) => prevState + initialNumOfNews);
   };
 
   // When newsCount is updated, fetch more NewsData
@@ -52,10 +68,11 @@ export default function CategorizedNewsBlock({
         </section>
         <section>
           <NewsList
-            newsData={memorizedSplitNewsData}
+            newsData={categoryNewsQuery?.data}
             customStyle="categorized"
             maxWidth="maxWidth290"
           />
+          {/* {memorizedNewsList} */}
         </section>
         <LoadMoreNewsButton
           label={newsType + " " + "HN"}
