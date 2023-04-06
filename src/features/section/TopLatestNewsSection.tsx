@@ -3,42 +3,61 @@ import Headline from "../../components/headline/Headline";
 import NewsList from "../../components/list/NewsList";
 import LatestNewsBlock from "../block/LatestNewsBlock";
 import styles from "./styles.module.scss";
-import useFetchNews from "../../hooks/useFetchNews";
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
+import { useQuery, useIsFetching } from "react-query";
+import { getNewsData } from "../../helpers/getNewsData";
+import { fakeNewsData } from "../../constants/news";
+import Loader from "../../components/loader/Loader";
 
 export default function TopLatestNewsSection() {
-  const [newsCount, setNewsCount] = useState(19);
+  // React state for managing the number of news that are needed to get from API
+  const initialNewsCount = 19;
+  const [newsCount, setNewsCount] = useState(initialNewsCount);
+
   // Define url for fetching top-stories news from API
   const url = `https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"`;
 
-  // Declare useFetchNews custom hook with url above
-  const { news, fetchNews } = useFetchNews(url, "topNews");
+  const topNewsQuery = useQuery(
+    ["topNews", newsCount],
+    () => getNewsData(url),
+    {
+      keepPreviousData: true,
+      cacheTime: 10 * 60 * 1000,
+      placeholderData: fakeNewsData,
+      staleTime: 600000,
+    }
+  );
 
-  // Retrieve the news data without News for headline component
-  const splitNewsData = news?.slice(1, news.length);
+  // Split NewsData so the first one will be used for Headline component and the others will be used in NewsList component
+  const splitNewsData = topNewsQuery.data?.slice(1, topNewsQuery.data?.length);
+
+  // Memorize NewsList component by useMemo hook
+  const memorizedNewsList = useMemo(() => {
+    return <NewsList newsData={splitNewsData} />;
+  }, [splitNewsData]);
 
   // update newsCount to load more NewsData from API
   const handleClick = () => {
-    setNewsCount((prevState) => prevState + 4);
+    setNewsCount((prevState) => prevState + (initialNewsCount - 1));
   };
 
-  // When newsCount is updated, fetch more NewsData
-  useEffect(() => {
-    fetchNews(url, "topNews");
-  }, [newsCount]);
+  const isFetching = useIsFetching();
 
   return (
-    <div className={styles.topLatestNewsSection}>
-      <Headline headlineNews={news[0]} />
-      <div className={styles.topLatestNewsSection_news}>
-        <div className={styles.topLatestNewsSection_newsList}>
-          <NewsList newsData={splitNewsData} />
-          <LoadMoreNewsButton label="Top HN" onClick={handleClick} />
-        </div>
-        <div>
-          <LatestNewsBlock />
+    <>
+      {(topNewsQuery.isLoading || isFetching !== 0) && <Loader />}
+      <div className={styles.topLatestNewsSection}>
+        <Headline headlineNews={topNewsQuery.data && topNewsQuery?.data[0]} />
+        <div className={styles.topLatestNewsSection_news}>
+          <div className={styles.topLatestNewsSection_newsList}>
+            {memorizedNewsList}
+            <LoadMoreNewsButton label="Top HN" onClick={handleClick} />
+          </div>
+          <div>
+            <LatestNewsBlock />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
