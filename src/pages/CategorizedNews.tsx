@@ -74,18 +74,17 @@ export default function Category({ category }: Props) {
   const handleClick = () => {
     setNewsCount((prevState) => prevState + (initialNewsCount - 1));
   };
-  console.log("rendering-categoryNews", categoryNewsQuery.isLoading);
   const isFetching = useIsFetching();
 
   return (
     <>
-      {(categoryNewsQuery.isLoading || isFetching !== 0) && <Loader />}
+      {isFetching !== 0 && <Loader />}
       <div className={styles.categoryNews}>
         <h1 className={styles.categoryNews_title}>{category} HN</h1>
       </div>
       {memorizedHeadline}
-      <div className={styles.categoryNews_newsList}>
-        {memorizedNewsList}
+      <div className={styles.categoryNews_newsListSection}>
+        <div className={styles.categoryNews_newsList}>{memorizedNewsList}</div>
         <LoadMoreNewsButton
           label={category + " " + "HN"}
           onClick={handleClick}

@@ -7,7 +7,11 @@
     font-weight: 700;
   }
 
-  &_newsList {
+  &_newsListSection {
     padding-top: 40px;
+  }
+
+  &_newsList {
+    min-height: 641px;
   }
 }

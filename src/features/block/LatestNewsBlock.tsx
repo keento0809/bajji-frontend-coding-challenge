@@ -2,7 +2,7 @@ import LoadMoreNewsButton from "../../components/button/LoadMoreNewsButton";
 import styles from "./styles.module.scss";
 import NewsList from "../../components/list/NewsList";
 import { useState, useMemo } from "react";
-import { useQuery } from "react-query";
+import { useIsFetching, useQuery } from "react-query";
 import { getNewsData } from "../../helpers/getNewsData";
 import { fakeNewsData } from "../../constants/news";
 
@@ -10,6 +10,8 @@ export default function LatestNewsBlock() {
   // React state for managing the number of news that are needed to get from API
   const initialNewsCount = 5;
   const [newsCount, setNewsCount] = useState(initialNewsCount);
+
+  const isFetching = useIsFetching();
 
   // Define url for fetching categorized news from API
   const url = `https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"`;
@@ -46,7 +48,7 @@ export default function LatestNewsBlock() {
       <div className={styles.latestNewsBlock}>
         <h3 className={styles.latestNewsBlock_title}>The Latest</h3>
         <div className={styles.latestNewsBlock_newsListContainer}>
-          {memorizedNewsList}
+          {isFetching === 0 && memorizedNewsList}
         </div>
         <LoadMoreNewsButton label="Latest" onClick={handleClick} />
       </div>
