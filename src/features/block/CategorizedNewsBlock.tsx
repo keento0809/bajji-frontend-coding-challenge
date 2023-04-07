@@ -34,8 +34,6 @@ export default function CategorizedNewsBlock({
     }
   );
 
-  console.log("render-categorizedNewsBlock");
-
   // update newsCount to load more NewsData from API
   const handleClick = () => {
     setNewsCount((prevState) => prevState + initialNumOfNews);

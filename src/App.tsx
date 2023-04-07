@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import CategorizedNews from "./pages/CategorizedNews";
 import ErrorPage from "./pages/ErrorPage";
-import Home from "./pages/Top";
+import Home from "./pages/Home";
 
 export default function App() {
   return (
