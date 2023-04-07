@@ -5,7 +5,6 @@ interface Props {
   onClick: () => void;
 }
 
-// TODO:Make this component reusable
 export default function LoadMoreNewsButton({ label, onClick }: Props) {
   return (
     <div className={styles.loadMoreNewsButton}>
