@@ -49,8 +49,10 @@ export default function TopLatestNewsSection() {
       <div className={styles.topLatestNewsSection}>
         <Headline headlineNews={topNewsQuery.data && topNewsQuery?.data[0]} />
         <div className={styles.topLatestNewsSection_news}>
-          <div className={styles.topLatestNewsSection_newsList}>
-            {memorizedNewsList}
+          <div className={styles.topLatestNewsSection_newsListSection}>
+            <div className={styles.topLatestNewsSection_newsList}>
+              {memorizedNewsList}
+            </div>
             <LoadMoreNewsButton label="Top HN" onClick={handleClick} />
           </div>
           <div>

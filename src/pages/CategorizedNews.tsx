@@ -84,8 +84,8 @@ export default function Category({ category }: Props) {
         <h1 className={styles.categoryNews_title}>{category} HN</h1>
       </div>
       {memorizedHeadline}
-      <div className={styles.categoryNews_newsList}>
-        {memorizedNewsList}
+      <div className={styles.categoryNews_newsListSection}>
+        <div className={styles.categoryNews_newsList}>{memorizedNewsList}</div>
         <LoadMoreNewsButton
           label={category + " " + "HN"}
           onClick={handleClick}

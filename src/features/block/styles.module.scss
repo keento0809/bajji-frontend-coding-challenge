@@ -4,7 +4,7 @@
   padding-top: 40px;
 
   @media screen and (min-width: 1280px) {
-    max-width: 320px;
+    width: 320px;
   }
 
   &_title {
@@ -19,8 +19,12 @@
   &_newsListContainer {
     padding-top: 24px;
     display: grid;
-    grid-template-columns: "1fr";
+    grid-template-columns: 1fr;
     gap: 24px;
+
+    @media screen and (min-width: 1280px) {
+      min-height: 735px;
+    }
   }
 }
 
