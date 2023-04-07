@@ -1,5 +1,5 @@
 export const topHeaderTexts = [
   "Frontend Coding Challenge by bajji, Inc.",
   "Kento Honda",
-  "Enter Your Implementation Time",
+  "35 hours",
 ] as const;
