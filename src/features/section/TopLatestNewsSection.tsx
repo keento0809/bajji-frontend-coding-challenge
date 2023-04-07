@@ -45,7 +45,7 @@ export default function TopLatestNewsSection() {
 
   return (
     <>
-      {(topNewsQuery.isLoading || isFetching !== 0) && <Loader />}
+      {isFetching !== 0 && <Loader />}
       <div className={styles.topLatestNewsSection}>
         <Headline headlineNews={topNewsQuery.data && topNewsQuery?.data[0]} />
         <div className={styles.topLatestNewsSection_news}>

@@ -13,7 +13,7 @@
   &_title {
     padding-top: 8px;
     max-width: 1230px;
-    min-height: 106px;
+    min-height: 60px;
 
     & h1 {
       display: -webkit-box;
@@ -31,6 +31,7 @@
         font-size: 48px;
         font-weight: 600;
         line-height: 52.8px;
+        min-height: 106px;
       }
     }
   }

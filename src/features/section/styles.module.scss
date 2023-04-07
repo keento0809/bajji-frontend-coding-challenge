@@ -22,8 +22,6 @@
   }
 
   &_newsList {
-    @media screen and (min-width: 1280px) {
-      min-height: 858px;
-    }
+    min-height: 852px;
   }
 }

@@ -58,7 +58,9 @@ export default function CategorizedNewsBlock({
         <section className={styles.categorizedNewsBlock_title}>
           <h1>{newsType} HN</h1>
         </section>
-        <section>{memorizedNewsList}</section>
+        <section className={styles.categorizedNewsBlock_newsList}>
+          {memorizedNewsList}
+        </section>
         <LoadMoreNewsButton
           label={newsType + " " + "HN"}
           onClick={handleClick}

@@ -21,6 +21,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
+    min-height: 703px;
 
     @media screen and (min-width: 1280px) {
       min-height: 735px;
@@ -40,6 +41,14 @@
       font-size: 48px;
       line-height: 53px;
       font-weight: 700;
+    }
+  }
+
+  &_newsList {
+    min-height: 419px;
+
+    @media screen and (min-width: 1280px) {
+      min-height: 122px;
     }
   }
 }
