@@ -30,7 +30,7 @@ export default function Category({ category }: Props) {
   }, [resetNewsCount]);
 
   // Define url for fetching categorized news from API
-  const url = `https://hacker-news.firebaseio.com/v0/${fixedCategory}stories.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"`;
+  const url = `https://hacker-news.firebaseio.com/v0/${fixedCategory}stories.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"&filter=!(null)`;
 
   // Declare categoryNewsQuery for fetching NewsData from API
   const categoryNewsQuery = useQuery(

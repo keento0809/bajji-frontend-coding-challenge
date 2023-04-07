@@ -21,7 +21,7 @@ export default function CategorizedNewsBlock({
   const [newsCount, setNewsCount] = useState(initialNumOfNews);
 
   // Define url for fetching categorized news from API
-  const url = `https://hacker-news.firebaseio.com/v0/${newsStory}.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"`;
+  const url = `https://hacker-news.firebaseio.com/v0/${newsStory}.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"&filter=!(null)`;
 
   // test reactQuery
   const categoryNewsQuery = useQuery(
