@@ -14,7 +14,7 @@ export default function LatestNewsBlock() {
   const isFetching = useIsFetching();
 
   // Define url for fetching categorized news from API
-  const url = `https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"`;
+  const url = `https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"&filter=!(null)`;
 
   // Declare latestNewsQuery for fetching NewsData from API
   const latestNewsQuery = useQuery(

@@ -15,7 +15,7 @@ export default function TopLatestNewsSection() {
   const [newsCount, setNewsCount] = useState(initialNewsCount);
 
   // Define url for fetching top-stories news from API
-  const url = `https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"`;
+  const url = `https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"&filter=!(null)`;
 
   const topNewsQuery = useQuery(
     ["topNews", newsCount],
