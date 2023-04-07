@@ -71,9 +71,9 @@ export default function CategorizedNewsSection({ category }: Props) {
   }, [category, categoryNewsQuery.data]);
 
   // update newsCount to load more NewsData from API
-  const handleClick = () => {
+  function handleClick() {
     setNewsCount((prevState) => prevState + (initialNewsCount - 1));
-  };
+  }
   const isFetching = useIsFetching();
 
   return (

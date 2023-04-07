@@ -35,9 +35,9 @@ export default function CategorizedNewsBlock({
   );
 
   // update newsCount to load more NewsData from API
-  const handleClick = () => {
+  function handleClick() {
     setNewsCount((prevState) => prevState + initialNumOfNews);
-  };
+  }
 
   // Memorize NewsList component by useMemo hook
   const memorizedNewsList = useMemo(() => {

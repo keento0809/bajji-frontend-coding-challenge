@@ -29,10 +29,11 @@ export default function LatestNewsBlock() {
   );
 
   // update newsCount to load more NewsData from API
-  const handleClick = () => {
+  function handleClick() {
     setNewsCount((prevState) => prevState + 5);
-  };
+  }
 
+  // Memorize NewsList component by useMemo hook
   const memorizedNewsList = useMemo(() => {
     return (
       <NewsList
