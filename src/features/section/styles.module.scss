@@ -2,8 +2,6 @@
   padding-bottom: 40px;
 
   &_news {
-    flex: 1;
-
     @media screen and (min-width: 1280px) {
       display: flex;
       flex-direction: row;

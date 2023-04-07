@@ -39,18 +39,20 @@
 
 /* Styles for LoadMoreNewsButton component */
 .loadMoreNewsButton {
-  padding: 8px 0;
+  padding: 7.5px 0;
   border-bottom: 1px dashed #000;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 
   &_text {
     background-color: transparent;
     border: none;
     outline: none;
     appearance: none;
-    display: inline-block;
-    font-size: 14px;
     line-height: 14px;
-    font-weight: 500;
     cursor: pointer;
   }
 }

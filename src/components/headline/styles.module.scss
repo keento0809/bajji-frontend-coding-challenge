@@ -15,11 +15,15 @@
     max-width: 1230px;
     min-height: 60px;
 
+    & p {
+      min-height: 14px;
+    }
+
     & h1 {
       display: -webkit-box;
       font-size: 28px;
       font-weight: 600;
-      line-height: 30px;
+      line-height: 31px;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
       overflow: hidden;
@@ -42,14 +46,14 @@
     line-height: 12px;
     font-size: 12px;
     color: #767676;
+    min-height: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
   &_author {
+    display: inline-block;
     padding-right: 8px;
-    font-size: 12px;
-  }
-
-  &_time {
-    display: "inline-block";
   }
 }

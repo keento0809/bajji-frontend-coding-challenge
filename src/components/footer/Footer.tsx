@@ -11,14 +11,14 @@ export default function Footer() {
     <footer className={styles.footer}>
       <ContentWrapper>
         <div className={styles.footer_container}>
-          <section className={styles.footer_contents}>
-            <div>
+          <section className={styles.footer_contentsSection}>
+            <div className={styles.footer_contents}>
               {/* TODO:create a helper function mapping contents */}
               {footerContentsArrayLeft.map((content) => {
                 return <span key={content}>{content}</span>;
               })}
             </div>
-            <div>
+            <div className={styles.footer_contents}>
               {footerContentsArrayRight.map((content) => {
                 return <span key={content}>{content}</span>;
               })}

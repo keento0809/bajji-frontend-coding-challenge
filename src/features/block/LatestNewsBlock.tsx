@@ -46,7 +46,9 @@ export default function LatestNewsBlock() {
   return (
     <>
       <div className={styles.latestNewsBlock}>
-        <h3 className={styles.latestNewsBlock_title}>The Latest</h3>
+        {isFetching === 0 && (
+          <h3 className={styles.latestNewsBlock_title}>The Latest</h3>
+        )}
         <div className={styles.latestNewsBlock_newsListContainer}>
           {isFetching === 0 && memorizedNewsList}
         </div>
