@@ -84,7 +84,9 @@ export default function Category({ category }: Props) {
       </div>
       {memorizedHeadline}
       <div className={styles.categoryNews_newsListSection}>
-        <div className={styles.categoryNews_newsList}>{memorizedNewsList}</div>
+        <div className={styles.categoryNews_newsList}>
+          {isFetching === 0 && memorizedNewsList}
+        </div>
         <LoadMoreNewsButton
           label={category + " " + "HN"}
           onClick={handleClick}

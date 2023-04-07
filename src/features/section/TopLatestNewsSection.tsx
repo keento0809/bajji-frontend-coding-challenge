@@ -51,7 +51,7 @@ export default function TopLatestNewsSection() {
         <div className={styles.topLatestNewsSection_news}>
           <div className={styles.topLatestNewsSection_newsListSection}>
             <div className={styles.topLatestNewsSection_newsList}>
-              {memorizedNewsList}
+              {isFetching === 0 && memorizedNewsList}
             </div>
             <LoadMoreNewsButton label="Top HN" onClick={handleClick} />
           </div>
