@@ -11,6 +11,7 @@ export default function LatestNewsBlock() {
   const initialNewsCount = 5;
   const [newsCount, setNewsCount] = useState(initialNewsCount);
 
+  // Check the status if data is being fetched or not
   const isFetching = useIsFetching();
 
   // Define url for fetching categorized news from API

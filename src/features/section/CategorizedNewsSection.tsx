@@ -74,6 +74,8 @@ export default function CategorizedNewsSection({ category }: Props) {
   function handleClick() {
     setNewsCount((prevState) => prevState + (initialNewsCount - 1));
   }
+
+  // Check the status if data is being fetched or not
   const isFetching = useIsFetching();
 
   return (
