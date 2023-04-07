@@ -1,0 +1,21 @@
+.newsList {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+
+  @media screen and (min-width: 1280px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  &.categorized {
+    @media screen and (min-width: 1280px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+
+  &.latest {
+    @media screen and (min-width: 1280px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

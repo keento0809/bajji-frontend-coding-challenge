@@ -1,0 +1,75 @@
+.news {
+  overflow-wrap: break-word;
+  padding-bottom: 23px;
+  border-bottom: 1px dashed #000;
+
+  @media screen and (min-width: 1280px) {
+    max-width: 272px;
+  }
+
+  &_titleSection {
+    & p {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 14px;
+
+      @media screen and (min-width: 1280px) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &_title {
+    padding-top: 4px;
+
+    & h4 {
+      display: -webkit-box;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 19.8px;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @media screen and (min-width: 1280px) {
+        min-height: 60px;
+        max-height: 106px;
+      }
+    }
+  }
+
+  &_authorAndTimeSection {
+    padding-top: 8px;
+    font-weight: 500;
+    line-height: 12px;
+    font-size: 10px;
+    color: #767676;
+
+    @media screen and (min-width: 1280px) {
+      font-size: 12px;
+    }
+  }
+
+  &_author {
+    display: inline-block;
+    padding-right: 8px;
+  }
+
+  &_time {
+    display: inline-block;
+  }
+}
+
+/* For custom maxWidth of News component */
+.maxWidth290 {
+  @media screen and (min-width: 1280px) {
+    max-width: 290px;
+  }
+}
+
+.maxWidth320 {
+  @media screen and (min-width: 1280px) {
+    max-width: 320px;
+  }
+}

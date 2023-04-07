@@ -1,0 +1,12 @@
+/* styles for ErrorPage  */
+.errorPage {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 120px;
+  min-height: 600px;
+
+  @media screen and (min-width: 1280px) {
+    min-height: 1079px;
+  }
+}

@@ -1,0 +1,51 @@
+/* Styles for LatestNewsBlock  */
+.latestNewsBlock {
+  padding-top: 40px;
+
+  @media screen and (min-width: 1280px) {
+    width: 320px;
+  }
+
+  &_title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    padding: 15px 0;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  &_newsListContainer {
+    padding-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    @media screen and (min-width: 1280px) {
+      min-height: 706px;
+    }
+  }
+}
+
+/* Styles for CategorizedNewsBlock  */
+.categorizedNewsBlock {
+  padding-bottom: 40px;
+
+  &_title {
+    padding: 24px 0;
+
+    & h1 {
+      font-size: 48px;
+      line-height: 53px;
+      font-weight: 700;
+    }
+  }
+
+  &_newsList {
+    min-height: 419px;
+
+    @media screen and (min-width: 1280px) {
+      min-height: 122px;
+    }
+  }
+}
