@@ -11,6 +11,7 @@ export default function LatestNewsBlock() {
   const initialNewsCount = 5;
   const [newsCount, setNewsCount] = useState(initialNewsCount);
 
+  // Check the status if data is being fetched or not
   const isFetching = useIsFetching();
 
   // Define url for fetching categorized news from API
@@ -29,10 +30,11 @@ export default function LatestNewsBlock() {
   );
 
   // update newsCount to load more NewsData from API
-  const handleClick = () => {
+  function handleClick() {
     setNewsCount((prevState) => prevState + 5);
-  };
+  }
 
+  // Memorize NewsList component by useMemo hook
   const memorizedNewsList = useMemo(() => {
     return (
       <NewsList

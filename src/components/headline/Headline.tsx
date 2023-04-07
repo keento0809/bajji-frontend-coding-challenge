@@ -8,10 +8,11 @@ interface Props {
 }
 
 export default function Headline({ headlineNews }: Props) {
-  // Convert unix time to hour or minutes
+  // Convert unix time to hour or minutes or now
   const fixedTime =
     headlineNews === undefined ? "" : checkTimeDifferences(headlineNews?.time);
 
+  // Check the status if data is being fetched or not
   const isFetching = useIsFetching();
 
   return (

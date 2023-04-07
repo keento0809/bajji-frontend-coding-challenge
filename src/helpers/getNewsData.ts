@@ -9,7 +9,7 @@ async function translateNewsData(
     `https://hacker-news.firebaseio.com/v0/item/${newsId}.json?print=pretty`
   );
   const translatedNews: NewsData = await response.json();
-  // TODO:Stop unnecessary rendering
+
   // Only add translatedNews to translatedNewsDataArray if it is not falsy
   if (translatedNews) {
     const isTranslatedNewsExist = translatedNewsDataArray.find((news) => {

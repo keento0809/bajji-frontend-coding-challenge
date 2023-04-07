@@ -4,7 +4,6 @@ import styles from "./styles.module.scss";
 import { useState, useMemo } from "react";
 import { useQuery } from "react-query";
 import { getNewsData } from "../../helpers/getNewsData";
-import React from "react";
 
 interface Props {
   newsStory: string;
@@ -23,7 +22,7 @@ export default function CategorizedNewsBlock({
   // Define url for fetching categorized news from API
   const url = `https://hacker-news.firebaseio.com/v0/${newsStory}.json?print=pretty&limitToFirst=${newsCount}&orderBy="$key"&filter=!(null)`;
 
-  // test reactQuery
+  // Define categoryNewsQuery
   const categoryNewsQuery = useQuery(
     ["categoryNews", newsCount, newsType],
     () => getNewsData(url),
@@ -34,12 +33,10 @@ export default function CategorizedNewsBlock({
     }
   );
 
-  console.log("render-categorizedNewsBlock");
-
   // update newsCount to load more NewsData from API
-  const handleClick = () => {
+  function handleClick() {
     setNewsCount((prevState) => prevState + initialNumOfNews);
-  };
+  }
 
   // Memorize NewsList component by useMemo hook
   const memorizedNewsList = useMemo(() => {

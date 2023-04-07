@@ -1,3 +1,4 @@
+/* styles for topLatestNews section  */
 .topLatestNewsSection {
   padding-bottom: 40px;
 
@@ -21,5 +22,29 @@
 
   &_newsList {
     min-height: 852px;
+  }
+}
+
+/* styles for categorizedNews section  */
+.categoryNews {
+  padding-top: 40px;
+
+  &_title {
+    font-size: 36px;
+    line-height: 38px;
+    font-weight: 700;
+
+    @media screen and (min-width: 1280px) {
+      font-size: 48px;
+      line-height: 53px;
+    }
+  }
+
+  &_newsListSection {
+    padding: 40px 0;
+  }
+
+  &_newsList {
+    min-height: 560px;
   }
 }

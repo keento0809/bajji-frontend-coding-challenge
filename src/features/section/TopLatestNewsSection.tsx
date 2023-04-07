@@ -28,7 +28,7 @@ export default function TopLatestNewsSection() {
     }
   );
 
-  // Split NewsData so the first one will be used for Headline component and the others will be used in NewsList component
+  // Split NewsData, then the first one will be used for Headline component and the others will be used in NewsList component
   const splitNewsData = topNewsQuery.data?.slice(1, topNewsQuery.data?.length);
 
   // Memorize NewsList component by useMemo hook
@@ -37,10 +37,11 @@ export default function TopLatestNewsSection() {
   }, [splitNewsData]);
 
   // update newsCount to load more NewsData from API
-  const handleClick = () => {
+  function handleClick() {
     setNewsCount((prevState) => prevState + (initialNewsCount - 1));
-  };
+  }
 
+  // Check the status if data is being fetched or not
   const isFetching = useIsFetching();
 
   return (

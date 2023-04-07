@@ -1,4 +1,4 @@
-export const checkTimeDifferences = (unix_timestamp: number) => {
+export function checkTimeDifferences(unix_timestamp: number) {
   const now = new Date();
   const timeStamp = new Date(unix_timestamp * 1000);
   const diffTimeStamp = now.getTime() - timeStamp.getTime();
@@ -15,4 +15,4 @@ export const checkTimeDifferences = (unix_timestamp: number) => {
   } else {
     return;
   }
-};
+}
